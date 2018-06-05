@@ -7,6 +7,7 @@ User=<%= node['faye']['user'] %>
 EnvironmentFile=<%= "#{node['faye']['systemd']['env_path']}/faye" %>
 PIDFile=/var/run/<%= node['faye']['app_name'] %>.pid
 ExecStart=/usr/bin/node <%= node['faye']['path'] %>/current/server.js
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
